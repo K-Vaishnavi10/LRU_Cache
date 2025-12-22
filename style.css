@@ -1,0 +1,112 @@
+/* ========== GLOBAL ========== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f9fafb;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ========== INPUT AREA ========== */
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+input {
+    padding: 6px;
+    width: 130px;
+}
+
+button {
+    padding: 7px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #2563eb;
+    color: white;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+/* ========== INFO TEXT ========== */
+#explanation {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px;
+    min-height: 24px;
+}
+
+#capacity-info {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* ========== CACHE AREA ========== */
+#cache-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 90px;
+}
+
+/* ========== CACHE NODE ========== */
+.cache-box {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 6px;
+    overflow: hidden;
+    background: white;
+    font-weight: bold;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Key */
+.cache-key {
+    background-color: #e5e7eb;
+    padding: 10px;
+    border-right: 1px solid black;
+    min-width: 40px;
+}
+
+/* Value */
+.cache-value {
+    padding: 10px;
+    min-width: 40px;
+}
+
+/* MRU & LRU */
+.mru .cache-key,
+.mru .cache-value {
+    background-color: #bbf7d0;
+}
+
+.lru .cache-key,
+.lru .cache-value {
+    background-color: #fecaca;
+}
+
+/* Arrow */
+.arrow {
+    font-size: 22px;
+    font-weight: bold;
+}
