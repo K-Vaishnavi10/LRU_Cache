@@ -93,6 +93,7 @@ function updateUI() {
     let i = 0;
 
     while (current !== cache.tail) {
+        // Create cache box
         let box = document.createElement("div");
         box.className = "cache-box " +
             (i === 0 ? "mru" : i === size - 1 ? "lru" : "normal");
@@ -103,6 +104,14 @@ function updateUI() {
         `;
         div.appendChild(box);
 
+        // Add arrow if not last node
+        if (current.next !== cache.tail) {
+            let arrow = document.createElement("div");
+            arrow.className = "arrow";
+            arrow.innerText = "→";   // Unicode arrow
+            div.appendChild(arrow);
+        }
+
         current = current.next;
         i++;
     }
@@ -110,6 +119,7 @@ function updateUI() {
     document.getElementById("usage").innerText =
         `Capacity Used: ${size} / ${cache.capacity}`;
 }
+
 
 function toggleTheme() {
     document.body.classList.toggle("dark-theme");
