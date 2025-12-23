@@ -1,112 +1,120 @@
-/* ========== GLOBAL ========== */
+:root {
+    --bg-color: #f4f6f8;
+    --container-bg: #ffffff;
+    --text-color: #000;
+    --button-bg: #2563eb;
+    --border: #000;
+
+    --mru: #16a34a;
+    --normal: #2563eb;
+    --lru: #dc2626;
+}
+
+.dark-theme {
+    --bg-color: #0f172a;
+    --container-bg: #1e293b;
+    --text-color: #f8fafc;
+    --button-bg: #38bdf8;
+    --border: #f8fafc;
+}
+
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f9fafb;
-    padding: 30px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+h2 {
     text-align: center;
 }
 
-/* ========== INPUT AREA ========== */
-.input-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 20px;
+.container {
+    width: 50%;
+    margin: 12px auto;
+    padding: 10px 20px;
+    background: var(--container-bg);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-.input-group {
+.form-row {
     display: flex;
-    flex-direction: column;
-    text-align: left;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
 }
 
-label {
+.form-row label {
+    width: 80px;
+    font-weight: bold;
+}
+
+.form-row input {
+    width: 400px;
+    padding: 4px;
     font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-input {
-    padding: 6px;
-    width: 130px;
 }
 
 button {
-    padding: 7px 16px;
-    cursor: pointer;
+    margin-top: 10px;
+    padding: 5px;
+    width: 140px;
+    background: var(--button-bg);
+    color: white;
     border: none;
     border-radius: 4px;
-    background-color: #2563eb;
+    cursor: pointer;
+}
+
+.theme-toggle {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.theme-btn {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    background: var(--button-bg);
     color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-button:hover {
-    background-color: #1e40af;
-}
 
-/* ========== INFO TEXT ========== */
-#explanation {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 15px;
-    min-height: 24px;
-}
-
-#capacity-info {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-/* ========== CACHE AREA ========== */
-#cache-container {
+/* Cache Visualization */
+#cache {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-height: 90px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* ========== CACHE NODE ========== */
 .cache-box {
     display: flex;
-    border: 2px solid black;
-    border-radius: 6px;
-    overflow: hidden;
-    background: white;
-    font-weight: bold;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    border: 1px solid var(--border);
+    color: white;
+    animation: slide 0.4s ease;
 }
 
-/* Key */
-.cache-key {
-    background-color: #e5e7eb;
-    padding: 10px;
-    border-right: 1px solid black;
-    min-width: 40px;
+.key, .value {
+    padding: 8px 12px;
 }
 
-/* Value */
-.cache-value {
-    padding: 10px;
-    min-width: 40px;
+.key {
+    border-right: 1px solid var(--border);
 }
 
-/* MRU & LRU */
-.mru .cache-key,
-.mru .cache-value {
-    background-color: #bbf7d0;
-}
+.mru { background: var(--mru); }
+.normal { background: var(--normal); }
+.lru { background: var(--lru); }
 
-.lru .cache-key,
-.lru .cache-value {
-    background-color: #fecaca;
-}
-
-/* Arrow */
-.arrow {
-    font-size: 22px;
-    font-weight: bold;
+@keyframes slide {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }

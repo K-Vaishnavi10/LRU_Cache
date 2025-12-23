@@ -9,33 +9,60 @@
 
 <h2>LRU Cache Visualization</h2>
 
-<div class="input-container">
+<div class="theme-toggle">
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+</div>
 
-    <div class="input-group">
-        <label for="capacity">Cache Capacity</label>
-        <input type="number" id="capacity" placeholder="Enter size" min="1">
+<!-- Capacity -->
+<div class="container">
+    <h3>Set Capacity</h3>
+
+    <div class="form-row">
+        <label>Capacity</label>
+        <input type="number" id="capacity" min="1">
     </div>
 
     <button onclick="setCapacity()">Set Capacity</button>
-
-    <div class="input-group">
-        <label for="key">Key</label>
-        <input type="text" id="key" placeholder="Enter key">
-    </div>
-
-    <div class="input-group">
-        <label for="value">Value</label>
-        <input type="text" id="value" placeholder="Enter value">
-    </div>
-
-    <button onclick="putCache()">Put</button>
-    <button onclick="getCache()">Get</button>
+    <p id="capacity-status"></p>
 </div>
 
-<div id="explanation"></div>
-<div id="capacity-info"></div>
+<!-- Put -->
+<div class="container">
+    <h3>Put Operation</h3>
 
-<div id="cache-container"></div>
+    <div class="form-row">
+        <label>Key</label>
+        <input type="text" id="put-key">
+    </div>
+
+    <div class="form-row">
+        <label>Value</label>
+        <input type="text" id="put-value">
+    </div>
+
+    <button onclick="put()">Put</button>
+    <p id="put-status"></p>
+</div>
+
+<!-- Get -->
+<div class="container">
+    <h3>Get Operation</h3>
+
+    <div class="form-row">
+        <label>Key</label>
+        <input type="text" id="get-key">
+    </div>
+
+    <button onclick="get()">Get</button>
+    <p id="get-result"></p>
+</div>
+
+<!-- Cache Visualization -->
+<div class="container">
+    <h3>Cache (Linked List View)</h3>
+    <p id="usage"></p>
+    <div id="cache"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
